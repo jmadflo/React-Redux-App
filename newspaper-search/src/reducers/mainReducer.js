@@ -7,7 +7,7 @@ export const initialState = {
 }
 
 export const mainReducer = (state = initialState, action) => {
-    switch(actions.type) {
+    switch(action.type) {
         case UPDATE_SEARCH_FORM:
             return {
                 ...state,
