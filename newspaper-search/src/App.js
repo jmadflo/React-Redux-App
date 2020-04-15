@@ -12,7 +12,7 @@ function App() {
   const data = useSelector(state => state.data)
 
   const updateForm = event => {
-    dispatch(updateSearchForm({name: event.name, value: event.value}))
+    dispatch(updateSearchForm({name: event.target.name, value: event.target.value}))
   }
 
   return (
