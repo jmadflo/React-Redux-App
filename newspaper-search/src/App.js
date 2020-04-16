@@ -9,23 +9,28 @@ import './App.css'
 
 function App() {
   const dispatch = useDispatch()
-  const searchText = useSelector(state => state.searchText)
-  const searchSection = useSelector(state => state.searchSection)
+  const baseCurrency = useSelector(state => state.baseCurrency)
+  const quoteCurrency = useSelector(state => state.quoteCurrency)
+  const date = useSelector(state => state.date)
   const data = useSelector(state => state.data)
 
   const updateForm = event => {
-    dispatch(updateSearchForm({name: event.target.name, value: event.target.value}))
+    dispatch(updateSearchForm({id: event.target.name, value: event.target.value}))
   }
 
   const updateData = event => {
     event.preventDefault()
-    dispatch(updateRenderedData(searchText, searchSection))
+    dispatch(updateRenderedData(baseCurrency, date))
+  }
+
+  const updateDate = newDate => {
+    dispatch(updateSearchForm({id: 'date', value: newDate}))
   }
 
   return (
     <div className="App">
       <h1>Currency Records</h1>
-      <SearchForm updateForm={updateForm} updateData={updateData} searchText={searchText}/>
+      <SearchForm updateForm={updateForm} updateData={updateData} baseCurrency={baseCurrency} quoteCurrency={quoteCurrency} date={date} updateDate={updateDate}/>
       <ArticleList data={data}/>
     </div>
   )

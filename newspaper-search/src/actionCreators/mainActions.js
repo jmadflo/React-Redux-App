@@ -1,8 +1,8 @@
 import axios from 'axios'
 // import { useSelector } from 'react-redux'
 
-// const searchText = useSelector(state => state.searchText)
-// const searchSection = useSelector(state => state.searchSection)
+const stateDate = useSelector(state => state.date)
+const statebaseCurrency = useSelector(state => state.baseCurrency)
 
 export const UPDATE_SEARCH_FORM = 'update_search'
 export const UPDATE_RENDERED_DATA = 'update_rendered_data'
@@ -11,8 +11,8 @@ export const updateSearchForm = (update) => {
     return { type: UPDATE_SEARCH_FORM, payload: update }
 }
 
-export const updateRenderedData = (searchText, searchSection) => dispatch => {
-    console.log(searchText)
+export const updateRenderedData = (date, baseCurrency) => dispatch => {
+    console.log(date, baseCurrency)
     axios.get()
         .then(response => {
             console.log(response)

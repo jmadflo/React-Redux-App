@@ -7,5 +7,10 @@
 form {
   display:flex;
   justify-content: space-around;
+  align-items: center;
   width: 70%;
+  height: 400px;
+}
+button {
+  width: 100px;
 }
