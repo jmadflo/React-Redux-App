@@ -2,8 +2,9 @@ import { UPDATE_SEARCH_FORM } from '../actionCreators/mainActions'
 
 export const initialState = {
     data: [],
-    searchText: '',
-    searchSection: 'Title'
+    baseCurrency: 'USD',
+    quoteCurrency: 'EUR',
+    date: ''
 }
 
 export const mainReducer = (state = initialState, action) => {
