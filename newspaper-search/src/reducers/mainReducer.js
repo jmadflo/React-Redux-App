@@ -3,7 +3,7 @@ import { UPDATE_SEARCH_FORM } from '../actionCreators/mainActions'
 export const initialState = {
     data: [],
     searchText: '',
-    searchSection: ''
+    searchSection: 'Title'
 }
 
 export const mainReducer = (state = initialState, action) => {
@@ -11,8 +11,8 @@ export const mainReducer = (state = initialState, action) => {
         case UPDATE_SEARCH_FORM:
             return {
                 ...state,
-                searchText: action.payload.name === 'searchText' ? action.payload.value : state.searchInput,
-                searchSection: action.payload.name === 'searchSection' ? action.payload.value : state.searchType
+                searchText: action.payload.name === 'searchText' ? action.payload.value : state.searchText,
+                searchSection: action.payload.name === 'searchSection' ? action.payload.value : state.searchSection
             }
         default:
             return state
