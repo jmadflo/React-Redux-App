@@ -10,6 +10,6 @@ form {
   align-items: center;
   width: 80%;
 }
-button {
+.submitButton {
   min-width: 90px;
 }

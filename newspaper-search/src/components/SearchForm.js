@@ -8,12 +8,12 @@ const SearchForm = props => {
         <form>
             <label htmlFor="baseCurrency">Base Currency:
                 <select id='baseCurrency' name='baseCurrency' onChange={props.updateForm}>
-                    {currencyCodes.map(currency => <option key={currency} value={currency}>{currency}</option>)}
+                    {currencyCodes.map(currency => <option key={currency.code} value={currency.code}>{currency.name}</option>)}
                 </select>
             </label>
             <label htmlFor='quoteCurrency'>Quote Currency
-                <select id='quoteCurrency' name='quoteCurrency' defaultValue='EUR' onChange={props.updateForm}>
-                    {currencyCodes.map(currency => <option key={currency} value={currency}>{currency}</option>)}
+                <select id='quoteCurrency' name='quoteCurrency' defaultValue={props.quoteCurrency} onChange={props.updateForm}>
+                    {currencyCodes.map(currency => <option key={currency.code} value={currency.code}>{currency.name}</option>)}
                 </select>
             </label>
             <label>Choose a date: 
@@ -24,10 +24,10 @@ const SearchForm = props => {
                     minDate={new Date('1999/01/01')} // api only has data going back to 1999
                     maxDate={new Date()} // obviously can't get data from the future
                     showYearDropdown
-                    onChange={props.updateDate}
+                    onChange={newDate => props.updateDate(newDate)}
                 />
             </label>
-            <button onClick={props.updateData}>Submit Search</button>
+            <button className='submitButton' onClick={props.updateData}>Submit Search</button>
         </form>
     )
 }
