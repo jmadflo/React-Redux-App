@@ -1,4 +1,4 @@
-import { UPDATE_SEARCH_FORM, UPDATE_DATE } from '../actionCreators/mainActions'
+import { UPDATE_SEARCH_FORM, UPDATE_DATE, SUBMIT_SEARCH } from '../actionCreators/mainActions'
 import { formatDate } from '../App'
 
 export const initialState = {
@@ -19,7 +19,12 @@ export const mainReducer = (state = initialState, action) => {
         case UPDATE_DATE:
             return {
                 ...state,
-                date: new Date(action.payload)
+                date: formatDate(new Date(action.payload))
+            }
+        case SUBMIT_SEARCH:
+            return {
+                ...state,
+                data: [...state.data, { base: state.baseCurrency, quote: state.current, date: state.date, rate: action.payload }]
             }
         default:
             return state

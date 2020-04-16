@@ -27,7 +27,7 @@ const SearchForm = props => {
                     onChange={newDate => props.updateDate(newDate)}
                 />
             </label>
-            <button className='submitButton' onClick={props.updateData}>Submit Search</button>
+            <button className='submitButton' onClick={props.submitSearch}>Submit Search</button>
         </form>
     )
 }

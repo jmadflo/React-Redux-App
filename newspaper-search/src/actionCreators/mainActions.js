@@ -11,13 +11,14 @@ export const updateSearchFormAction = (update) => {
 export const updateDateAction = (date) => {
     return {type: UPDATE_DATE, payload: date}
 }
-// export const submitSearch = (date, baseCurrency) => dispatch => {
-//     console.log(date, baseCurrency)
 
-//     axios.get()
-//         .then(response => {
-//             console.log(response)
-//             dispatch({type: SUBMIT_SEARCH, payload: response})
-//         })
-//         .catch(error => console.log(error))
-// }
+export const submitSearchAction = (baseCurrency, quoteCurrency, date) => dispatch => {
+    console.log(baseCurrency, date)
+
+    axios.get(`https://api.exchangeratesapi.io/${date.replace(/\//g, '-')}?base=${baseCurrency}&symbols=${quoteCurrency}`)
+        .then(response => {
+            console.log(response)
+            // dispatch({type: SUBMIT_SEARCH, payload: response})
+        })
+        .catch(error => console.log(error))
+}
