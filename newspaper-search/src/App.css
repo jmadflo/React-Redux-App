@@ -8,9 +8,8 @@ form {
   display:flex;
   justify-content: space-around;
   align-items: center;
-  width: 70%;
-  height: 400px;
+  width: 80%;
 }
 button {
-  width: 100px;
+  min-width: 90px;
 }

@@ -7,6 +7,17 @@ import ArticleList from './components/ArticleList'
 
 import './App.css'
 
+
+// turn datetime into yyyy-MM-dd format
+export const formatDate = (dateToFormat) => {
+  // make sure date and month are two digit numbers
+  // console.log(dateToFormat)
+  const date = dateToFormat.getDate()>9 ? dateToFormat.getDate() : `0${dateToFormat.getDate()}`
+  const month = dateToFormat.getMonth()>9 ? dateToFormat.getMonth()+1 : `0${dateToFormat.getMonth()+1}`
+  const year = dateToFormat.getFullYear()
+  return `${year}/${month}/${date}`
+}
+
 function App() {
   const dispatch = useDispatch()
   const baseCurrency = useSelector(state => state.baseCurrency)
@@ -24,7 +35,8 @@ function App() {
   }
 
   const updateDate = newDate => {
-    dispatch(updateSearchForm({id: 'date', value: newDate}))
+    const formattedDate = formatDate(newDate)
+    dispatch(updateSearchForm({id: 'date', value: formattedDate}))
   }
 
   return (
