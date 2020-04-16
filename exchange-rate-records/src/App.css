@@ -1,0 +1,40 @@
+.App {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+form {
+  display:flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 80%;
+}
+.submitButton {
+  min-width: 90px;
+}
+.RateList {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 80%;
+  margin-top: 30px;
+}
+.Rate {
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 80px;
+  border: 2px solid #202BFF;
+  min-width: 80%;
+  margin-bottom: 20px;
+}
+span {
+  font-weight: bold;
+  margin-right: 15px;
+}
+p {
+  margin: 10px;
+}
